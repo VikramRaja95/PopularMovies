@@ -1,0 +1,9 @@
+*.iml
+.gradle
+.idea
+/local.properties
+/PopularMovies.iml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
