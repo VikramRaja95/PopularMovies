@@ -1,4 +1,4 @@
-package me.vik1395.popularmovies.Utils;
+package me.vik1395.popularmovies.utils;
 
 import android.net.Uri;
 

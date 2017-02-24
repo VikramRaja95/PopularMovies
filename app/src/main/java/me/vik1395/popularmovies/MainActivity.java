@@ -20,14 +20,14 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import me.vik1395.popularmovies.Tasks.AsyncTaskCompleteListener;
-import me.vik1395.popularmovies.Tasks.FetchMoviesTask;
+import me.vik1395.popularmovies.tasks.AsyncTaskCompleteListener;
+import me.vik1395.popularmovies.tasks.FetchMoviesTask;
 
 public class MainActivity extends AppCompatActivity implements MovieAdapter.PosterItemClickHandler{
 
-    final String sort_popular = "popular";
-    final String sort_top_rated = "top_rated";
-    final String sort_upcoming = "upcoming";
+    final String SORT_POPULAR = "popular";
+    final String SORT_TOP_RATED = "top_rated";
+    final String SORT_UPCOMING = "upcoming";
 
     @BindView(R.id.rv_movies) RecyclerView posterHolder;
     @BindView(R.id.pb_loading_indicator) ProgressBar mLoadingIndicator;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Post
         posterHolder.setHasFixedSize(true);
         movies = new ArrayList<>();
 
-        loadMovieData(sort_popular);
+        loadMovieData(SORT_POPULAR);
     }
 
     private void loadMovieData(String sort) {
@@ -98,52 +98,6 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Post
         }
     }
 
-    /*public class FetchMoviesTask extends AsyncTask<String, Void, Movie[]> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mLoadingIndicator.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        protected Movie[] doInBackground(String... params) {
-
-            if (params.length == 0) {
-                return null;
-            }
-
-            String sort = params[0];
-            URL weatherRequestUrl = NetworkUtils.buildUrl(sort);
-
-            try {
-                String jsonMovieResponse = NetworkUtils.getResponseFromHttpUrl(weatherRequestUrl);
-                Movie[] MoviesData = TmdbJsonUtils.getMoviesDataFromJson(MainActivity.this, jsonMovieResponse);
-
-                return MoviesData;
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Movie[] movieData) {
-            mLoadingIndicator.setVisibility(View.INVISIBLE);
-            if (movieData != null) {
-                posterHolder.setVisibility(View.VISIBLE);
-                movies = movieData;
-                mAdapter = new MovieAdapter(movieData.length, MainActivity.this);
-                posterHolder.setAdapter(mAdapter);
-                mAdapter.setPosters(movieData);
-            }
-            else {
-                showErrorMessage();
-            }
-        }
-    }*/
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -156,15 +110,15 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Post
         int id = item.getItemId();
 
         if (id == R.id.action_sort_popular) {
-            loadMovieData(sort_popular);
+            loadMovieData(SORT_POPULAR);
             return true;
         }
         else if (id == R.id.action_sort_rating) {
-            loadMovieData(sort_top_rated);
+            loadMovieData(SORT_TOP_RATED);
             return true;
         }
         else if (id == R.id.action_sort_upcoming) {
-            loadMovieData(sort_upcoming);
+            loadMovieData(SORT_UPCOMING);
             return true;
         }
 

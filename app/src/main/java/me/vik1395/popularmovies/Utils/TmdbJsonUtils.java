@@ -1,15 +1,9 @@
-package me.vik1395.popularmovies.Utils;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+package me.vik1395.popularmovies.utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import me.vik1395.popularmovies.Movie;

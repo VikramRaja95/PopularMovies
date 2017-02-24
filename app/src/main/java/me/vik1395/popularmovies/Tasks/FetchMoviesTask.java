@@ -1,17 +1,14 @@
-package me.vik1395.popularmovies.Tasks;
+package me.vik1395.popularmovies.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.view.View;
 
 import java.net.URL;
 import java.util.ArrayList;
 
-import me.vik1395.popularmovies.MainActivity;
 import me.vik1395.popularmovies.Movie;
-import me.vik1395.popularmovies.MovieAdapter;
-import me.vik1395.popularmovies.Utils.NetworkUtils;
-import me.vik1395.popularmovies.Utils.TmdbJsonUtils;
+import me.vik1395.popularmovies.utils.NetworkUtils;
+import me.vik1395.popularmovies.utils.TmdbJsonUtils;
 
 /**
  * Created by Vik1395 on 2/23/2017.
